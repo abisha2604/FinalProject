@@ -10,7 +10,7 @@ Generic e-commerce platforms provide static recommendations, leading to low pers
 
 💡 Solution:
 
-A Conversational AI Assistant that:
+A Conversational AI Assistant that
 
 Understands natural language queries
 
@@ -26,6 +26,7 @@ Stores chat history in database
 
 🏗️ System Architecture:
 
+```bash
 User → Streamlit UI
         ↓
 FastAPI Backend
@@ -37,9 +38,11 @@ RAG Pipeline
    └── Groq LLM (Response Generation)
         ↓
 SQLite (Chat History)
+```
 
 📂 Project Structure:
 
+```bash
 E-Commerce_assistant/
 │
 ├── backend/
@@ -72,22 +75,22 @@ E-Commerce_assistant/
 ├── frontend/
 │   └── app.py
 │
-└── docker-compose.yml
-
+└── docker-compose.yml 
+```
 
 🔎 API Endpoints:
 
 Defined in: product_routes
 
-POST /chat
+* POST /chat
 
 Handles user query and returns LLM-generated recommendation.
 
-GET /history
+* GET /history
 
 Returns all previous chat history.
 
-DELETE /delete-history
+* DELETE /delete-history
 
 Deletes all chat records.
 
@@ -95,7 +98,7 @@ Deletes all chat records.
 
 Implemented in: rag_service
 
-Steps:
+🚀Steps:
 
 Load product catalog from CSV folder
 
@@ -111,11 +114,10 @@ Add conversation memory from database
 
 Generate final response using Groq LLM
 
-🗄️ Database
+🗄️ Database:
 Chat history stored using SQLAlchemy.
 
-Schema defined in: schema
-
+Schema defined in  : schema
 Chat memory builder: data_service
 
 📦 Request Model
@@ -127,26 +129,30 @@ Defined using Pydantic: pydantic
 }
 
 
-🛠️ Tech Stack:
+## 🛠️ Tech Stack
 
-Layer	                      Technology
-Backend	                      FastAPI
-Vector Search	              FAISS
-Embeddings	                  all-MiniLM-L6-v2
-Re-ranking	                  cross-encoder/ms-marco-MiniLM-L-6-v2
-LLM	                          Groq (Llama 3.3 70B)
-Database	                  SQLite
-ORM	                          SQLAlchemy
-Frontend	                  Streamlit
-Containerization	          Docker
+| Layer            | Technology                               |
+|------------------|------------------------------------------|
+| Backend          | FastAPI                                  |
+| Vector Search    | FAISS                                    |
+| Embeddings       | all-MiniLM-L6-v2                         |
+| Re-ranking       | cross-encoder/ms-marco-MiniLM-L-6-v2     |
+| LLM              | Groq (Llama 3.3 70B)                     |
+| Database         | SQLite                                   |
+| ORM              | SQLAlchemy                               |
+| Frontend         | Streamlit                                |
+| Containerization | Docker                                   |
+
 
 ⚙️ Installation:
 
-1️⃣ Clone Project
+1️⃣ Clone Project:
+
 git clone <repo-url>
 cd project
 
-2️⃣ Run Without Docker
+2️⃣ Run Without Docker:
+
 Backend
 cd backend
 pip install -r requirements.txt
@@ -156,7 +162,8 @@ Frontend
 cd frontend
 streamlit run app.py
 
-3️⃣ Run With Docker
+3️⃣ Run With Docker:
+
 docker compose up --build
 
 
@@ -178,4 +185,4 @@ Dockerized full-stack application
 👩‍💻 Author
 
 S. Abisha
-AI / GenAI Developer
+Aspiring GenAI Developer
