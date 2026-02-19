@@ -82,17 +82,17 @@ E-Commerce_assistant/
 
 Defined in: product_routes
 
-* POST /chat
+POST /chat
 
-Handles user query and returns LLM-generated recommendation.
+* Handles user query and returns LLM-generated recommendation.
 
-* GET /history
+GET /history
 
-Returns all previous chat history.
+* Returns all previous chat history.
 
-* DELETE /delete-history
+DELETE /delete-history
 
-Deletes all chat records.
+* Deletes all chat records.
 
 🧠 RAG Pipeline Flow
 
@@ -100,19 +100,19 @@ Implemented in: rag_service
 
 🚀Steps:
 
-Load product catalog from CSV folder
+* Load product catalog from CSV folder
 
-Convert products into embeddings (SentenceTransformer)
+* Convert products into embeddings (SentenceTransformer)
 
-Store embeddings in FAISS index
+* Store embeddings in FAISS index
 
-Retrieve top relevant products
+* Retrieve top relevant products
 
-Re-rank using CrossEncoder
+* Re-rank using CrossEncoder
 
-Add conversation memory from database
+* Add conversation memory from database
 
-Generate final response using Groq LLM
+* Generate final response using Groq LLM
 
 🗄️ Database:
 Chat history stored using SQLAlchemy.
@@ -120,7 +120,7 @@ Chat history stored using SQLAlchemy.
 Schema defined in  : schema
 Chat memory builder: data_service
 
-📦 Request Model
+📦 Request Model:
 
 Defined using Pydantic: pydantic
 
