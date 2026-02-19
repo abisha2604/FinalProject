@@ -10,19 +10,19 @@ Generic e-commerce platforms provide static recommendations, leading to low pers
 
 💡 Solution:
 
-A Conversational AI Assistant that
+* A Conversational AI Assistant that
 
-Understands natural language queries
+* Understands natural language queries
 
-Retrieves relevant products using RAG
+* Retrieves relevant products using RAG
 
-Re-ranks results using CrossEncoder
+* Re-ranks results using CrossEncoder
 
-Uses Groq LLM (Llama 3.3 70B) for intelligent recommendations
+* Uses Groq LLM (Llama 3.3 70B) for intelligent recommendations
 
-Maintains short-term conversation memory
+* Maintains short-term conversation memory
 
-Stores chat history in database
+* Stores chat history in database
 
 🏗️ System Architecture:
 
@@ -115,9 +115,11 @@ Implemented in: rag_service
 * Generate final response using Groq LLM
 
 🗄️ Database:
+
 Chat history stored using SQLAlchemy.
 
 Schema defined in  : schema
+
 Chat memory builder: data_service
 
 📦 Request Model:
