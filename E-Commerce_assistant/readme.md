@@ -78,58 +78,60 @@ E-Commerce_assistant/
 └── docker-compose.yml 
 ```
 
-🔎 API Endpoints:
+## 🔎 API Endpoints
 
-Defined in: product_routes
+Defined in: `routes/product_routes.py`
 
-POST /chat
+### 📌 POST `/chat`
+- Accepts user query
+- Retrieves relevant products using RAG
+- Generates LLM-powered recommendation
+- Returns AI-generated response
 
-* Handles user query and returns LLM-generated recommendation.
+### 📌 GET `/history`
+- Returns complete chat history from database
 
-GET /history
+### 📌 DELETE `/delete-history`
+- Deletes all stored chat records
 
-* Returns all previous chat history.
+---
 
-DELETE /delete-history
+## 🧠 RAG Pipeline Flow
 
-* Deletes all chat records.
+Implemented in: `services/rag_service.py`
 
-🧠 RAG Pipeline Flow
+### 🚀 Processing Steps
 
-Implemented in: rag_service
+1. Load product catalog from CSV files
+2. Convert product data into embeddings using **SentenceTransformer**
+3. Store embeddings in **FAISS vector index**
+4. Retrieve top relevant products based on query similarity
+5. Re-rank retrieved results using **CrossEncoder**
+6. Fetch recent conversation memory from database
+7. Generate final context-aware response using **Groq LLM (Llama 3.3 70B)**
 
-🚀Steps:
+---
 
-* Load product catalog from CSV folder
+## 🗄️ Database
 
-* Convert products into embeddings (SentenceTransformer)
+- Chat history stored using **SQLAlchemy ORM**
+- Schema defined in: `models/schema.py`
+- Chat memory builder logic implemented in: `services/data_service.py`
+- Database used: **SQLite**
 
-* Store embeddings in FAISS index
+---
 
-* Retrieve top relevant products
+## 📦 Request Model
 
-* Re-rank using CrossEncoder
+Defined using **Pydantic** in: `models/pydantic.py`
 
-* Add conversation memory from database
+### Example Request Body
 
-* Generate final response using Groq LLM
-
-🗄️ Database:
-
-Chat history stored using SQLAlchemy.
-
-Schema defined in  : schema
-
-Chat memory builder: data_service
-
-📦 Request Model:
-
-Defined using Pydantic: pydantic
-
+```json
 {
   "query": "Suggest laptops under ₹40000"
 }
-
+```
 
 ## 🛠️ Tech Stack
 
@@ -148,43 +150,69 @@ Defined using Pydantic: pydantic
 
 ⚙️ Installation:
 
-1️⃣ Clone Project:
+## 1️⃣ Clone the Repository
 
-git clone <repo-url>
-cd project
+```bash
+git clone https://github.com/abisha2604/FinalProject.git
+cd E-Commerce_assistant
+```
 
-2️⃣ Run Without Docker:
+---
 
-Backend
+## 2️⃣ Run Without Docker
+
+### 🔹 Backend Setup
+
+```bash
 cd backend
 pip install -r requirements.txt
 uvicorn main:app --reload
+```
 
-Frontend
+Backend will run at:
+- http://127.0.0.1:8000
+
+---
+
+### 🔹 Frontend Setup
+
+Open a new terminal and run:
+
+```bash
 cd frontend
 streamlit run app.py
+```
 
-3️⃣ Run With Docker:
+Frontend will run at:
+- http://localhost:8501
 
+---
+
+## 3️⃣ Run With Docker
+
+Make sure Docker is installed, then run:
+
+```bash
 docker compose up --build
-
+```
 
 🚀 Key Highlights:
 
-Implemented end-to-end RAG pipeline
+* Implemented end-to-end RAG pipeline
 
-Built FAISS vector search system
+* Built FAISS vector search system
 
-Integrated Groq LLM (Llama 3.3 70B)
+* Integrated Groq LLM (Llama 3.3 70B)
 
-Added conversational memory using database
+* Added conversational memory using database
 
-Implemented CrossEncoder re-ranking
+* Implemented CrossEncoder re-ranking
 
-Dockerized full-stack application
+* Dockerized full-stack application
 
 
 👩‍💻 Author
 
 S. Abisha
+
 Aspiring GenAI Developer
