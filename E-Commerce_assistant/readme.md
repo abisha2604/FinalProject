@@ -1,30 +1,34 @@
-🛒 Hyper-Personalized E-Commerce Assistant
+# 🛒 Hyper-Personalized E-Commerce Assistant
 
-An AI-powered conversational shopping assistant built using FastAPI, RAG (Retrieval-Augmented Generation), LLMs, SQLAlchemy, and Streamlit.
+> An AI-powered conversational shopping assistant built using FastAPI, RAG (Retrieval-Augmented Generation), LLMs, SQLAlchemy, and Streamlit.
 
-This system enhances traditional e-commerce by providing intelligent, context-aware, and personalized product recommendations through natural language interaction.
+This system enhances traditional e-commerce platforms by providing intelligent, context-aware, and personalized product recommendations through natural language interaction.
 
-📌 Problem
+---
 
-Generic e-commerce platforms provide static recommendations, leading to low personalization and reduced user engagement.
+## 📌 Problem
 
-💡 Solution:
+Traditional e-commerce platforms provide static and generic recommendations, leading to:
+- Low personalization
+- Reduced user engagement
+- Poor conversational experience
 
-* A Conversational AI Assistant that
+---
 
-* Understands natural language queries
+## 💡 Solution
 
-* Retrieves relevant products using RAG
+A Conversational AI Assistant that:
 
-* Re-ranks results using CrossEncoder
+- Understands natural language queries
+- Retrieves relevant products using **RAG**
+- Re-ranks results using **CrossEncoder**
+- Uses **Groq LLM (Llama 3.3 70B)** for intelligent recommendations
+- Maintains short-term conversation memory
+- Stores chat history in a database
 
-* Uses Groq LLM (Llama 3.3 70B) for intelligent recommendations
+---
 
-* Maintains short-term conversation memory
-
-* Stores chat history in database
-
-🏗️ System Architecture:
+## 🏗️ System Architecture
 
 ```bash
 User → Streamlit UI
@@ -195,24 +199,21 @@ Make sure Docker is installed, then run:
 ```bash
 docker compose up --build
 ```
+---
 
-🚀 Key Highlights:
+## 🚀 Key Highlights
 
-* Implemented end-to-end RAG pipeline
+- Implemented end-to-end RAG pipeline
+- Built FAISS vector similarity search
+- Integrated Groq LLM (Llama 3.3 70B)
+- Added conversational memory using database
+- Implemented CrossEncoder re-ranking
+- Dockerized full-stack application
 
-* Built FAISS vector search system
-
-* Integrated Groq LLM (Llama 3.3 70B)
-
-* Added conversational memory using database
-
-* Implemented CrossEncoder re-ranking
-
-* Dockerized full-stack application
+---
 
 
-👩‍💻 Author
+## 👩‍💻 Author
 
-S. Abisha
-
+**S. Abisha**  
 Aspiring GenAI Developer
